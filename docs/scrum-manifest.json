@@ -1,56 +1,15 @@
-﻿{
-    "projectId":  "PROJ-1786460607278",
-    "lastSyncAt":  "2026-08-12T15:54:18.973Z",
-    "mappings":  [
-                     {
-                         "sourceRef":  "HU-01#Servicio y Endpoint de Autenticacion",
-                         "testIds":  [
-
-                                     ],
-                         "requirementId":  "REQ-1786550047158"
-                     },
-                     {
-                         "sourceRef":  "HU-01#Interfaz de Login y Logout",
-                         "testIds":  [
-
-                                     ],
-                         "requirementId":  "REQ-1786550047244"
-                     },
-                     {
-                         "sourceRef":  "HU-01#Seguridad de Credenciales y Manejo de Sesiones",
-                         "testIds":  [
-
-                                     ],
-                         "requirementId":  "REQ-1786550047330"
-                     },
-                     {
-                         "sourceRef":  "HU-02#API CRUD y Persistencia de Tareas",
-                         "testIds":  [
-
-                                     ],
-                         "requirementId":  "REQ-1786550047416"
-                     },
-                     {
-                         "sourceRef":  "HU-02#Tablero Visual Kanban Reactivo",
-                         "testIds":  [
-
-                                     ],
-                         "requirementId":  "REQ-1786550047501"
-                     },
-                     {
-                         "sourceRef":  "HU-03#Middleware de Control de Acceso basado en Roles (RBAC)",
-                         "testIds":  [
-
-                                     ],
-                         "requirementId":  "REQ-1786550047567"
-                     },
-                     {
-                         "sourceRef":  "HU-03#Gestion Administrativa de Usuarios (CRUD y Contrasenas)",
-                         "testIds":  [
-
-                                     ],
-                         "requirementId":  "REQ-1786550047637"
-                     }
-                 ],
-    "apiUrl":  "https://scrum.misitiowebpersonal.com.ar"
+{
+  "apiUrl": "https://scrum.misitiowebpersonal.com.ar",
+  "projectId": "PROJ-1786460607278",
+  "lastSyncAt": "2026-08-12T16:25:35.000Z",
+  "mappings": [
+    {
+      "requirementId": "REQ-1786550047158",
+      "sourceRef": "backend/apps/authentication/views.py#LoginView",
+      "testIds": [
+        "TEST-1786551927142",
+        "TEST-1786551934211"
+      ]
+    }
+  ]
 }

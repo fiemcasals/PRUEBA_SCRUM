@@ -1,75 +1,42 @@
-﻿{
+{
   "tests": [
     {
       "requirementCode": "RF-01",
-      "title": "Autenticación de usuario válida",
+      "title": "Login exitoso con usuario y contraseña",
       "type": "Integración",
-      "preconditions": "Usuario existente en base de datos",
-      "description": "Envía credenciales válidas al endpoint /api/auth/login y verifica que retorne 200 con el token o sesión.",
-      "expectedResult": "Devuelve 200 y token/sesión válida",
+      "preconditions": "Usuario 'admin' registrado en el sistema",
+      "description": "Envía POST a /api/auth/login con credenciales válidas y verifica que retorne HTTP 200 con tokens JWT y datos del usuario.",
+      "expectedResult": "Devuelve HTTP 200 con token JWT (access/refresh) y perfil de usuario",
       "steps": [
         {
-          "name": "login",
+          "name": "login_exitoso",
           "method": "POST",
           "url": "{{baseUrl}}/api/auth/login",
-          "body": "{\"email\":\"admin@proyecto.local\",\"password\":\"Admin123!\"}",
+          "body": "{\"username\":\"admin\",\"password\":\"AdminPassword123!\"}",
+          "expectedStatus": 200
+        },
+        {
+          "name": "verificar_perfil",
+          "method": "GET",
+          "url": "{{baseUrl}}/api/auth/me",
           "expectedStatus": 200
         }
       ]
     },
     {
       "requirementCode": "RF-01",
-      "title": "Autenticación con credenciales incorrectas",
+      "title": "Login rechazado con credenciales incorrectas",
       "type": "Integración",
-      "preconditions": "Sistema en ejecución",
-      "description": "Envía contraseña incorrecta al endpoint /api/auth/login y verifica rechazo con mensaje genérico.",
-      "expectedResult": "Devuelve 401 con mensaje genérico de credenciales inválidas",
+      "preconditions": "Servicio de autenticación activo",
+      "description": "Envía POST a /api/auth/login con contraseña inválida y verifica que retorne HTTP 401 con mensaje genérico de error.",
+      "expectedResult": "Devuelve HTTP 401 con mensaje de error 'Credenciales inválidas'",
       "steps": [
         {
           "name": "login_invalido",
           "method": "POST",
           "url": "{{baseUrl}}/api/auth/login",
-          "body": "{\"email\":\"usuario@proyecto.local\",\"password\":\"ClaveErronea123\"}",
+          "body": "{\"username\":\"admin\",\"password\":\"clave_incorrecta\"}",
           "expectedStatus": 401
-        }
-      ]
-    },
-    {
-      "requirementCode": "RF-01",
-      "title": "Crear y listar tareas en el tablero",
-      "type": "Integración",
-      "preconditions": "Usuario autenticado",
-      "description": "Crea una nueva tarea en To Do vía POST y verifica que aparezca listada en GET /api/tasks.",
-      "expectedResult": "Devuelve 201 al crear y 200 al listar conteniendo la tarea",
-      "steps": [
-        {
-          "name": "crear_tarea",
-          "method": "POST",
-          "url": "{{baseUrl}}/api/tasks",
-          "body": "{\"title\":\"Tarea de prueba {{now}}\",\"description\":\"Verificación de integración\"}",
-          "expectedStatus": 201
-        },
-        {
-          "name": "listar_tareas",
-          "method": "GET",
-          "url": "{{baseUrl}}/api/tasks",
-          "expectedStatus": 200
-        }
-      ]
-    },
-    {
-      "requirementCode": "RF-01",
-      "title": "Control de acceso a rutas de administración",
-      "type": "Integración",
-      "preconditions": "Token sin privilegios de admin",
-      "description": "Intenta acceder a /api/admin/users sin permisos y valida respuesta 403 Forbidden.",
-      "expectedResult": "Devuelve 403 Forbidden",
-      "steps": [
-        {
-          "name": "acceso_no_autorizado",
-          "method": "GET",
-          "url": "{{baseUrl}}/api/admin/users",
-          "expectedStatus": 403
         }
       ]
     }

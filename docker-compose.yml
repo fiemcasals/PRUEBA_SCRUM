@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  scrum-test:
+    container_name: scrum-test
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    restart: unless-stopped
+    environment:
+      - DEBUG=False
+      - ALLOWED_HOSTS=scrum-test.misitiowebpersonal.com.ar,77.37.43.74,localhost,127.0.0.1
+      - SECRET_KEY=scrum-test-production-super-secret-key-2026
+    volumes:
+      - scrum_data:/app
+    networks:
+      - net-proxy
+
+volumes:
+  scrum_data:
+
+networks:
+  net-proxy:
+    external: true

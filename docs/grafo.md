@@ -1,6 +1,6 @@
 # Grafo de Dependencias -- projectoPrueba
 
-_Generado automaticamente el 2026-08-12T16:38:23.667Z -- no editar a mano, se sobreescribe en cada publicacion._
+_Generado automaticamente el 2026-08-12T16:38:28.382Z -- no editar a mano, se sobreescribe en cada publicacion._
 
 ```mermaid
 graph TD
@@ -17,4 +17,5 @@ graph TD
     REQ_1786550047567["RF-01: Middleware de Control de Acceso basado en Roles (RBAC)"]
     REQ_1786550047637["RF-02: Gestion Administrativa de Usuarios (CRUD y Contrasenas)"]
   end
+  REQ_1786550047158 --> REQ_1786550047244
 ```

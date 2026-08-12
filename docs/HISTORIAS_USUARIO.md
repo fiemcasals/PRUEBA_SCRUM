@@ -1,6 +1,6 @@
 # Historias de Usuario -- projectoPrueba
 
-_Generado automaticamente el 2026-08-12T16:28:34.596Z -- no editar a mano, se sobreescribe en cada publicacion._
+_Generado automaticamente el 2026-08-12T16:38:21.566Z -- no editar a mano, se sobreescribe en cada publicacion._
 
 ## HU-01: Inicio de Sesión y Autenticación de Usuarios
 

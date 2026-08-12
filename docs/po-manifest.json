@@ -1,0 +1,20 @@
+{
+  "apiUrl": "https://scrum.misitiowebpersonal.com.ar",
+  "projectId": "PROJ-1786460607278",
+  "lastSyncAt": "2026-08-12T15:20:45.000Z",
+  "userStoryMappings": [
+    {
+      "userStoryId": "US-1786548038997",
+      "sourceRef": "docs/historias-po.md#HU-01: Inicio de Sesión y Autenticación de Usuarios"
+    },
+    {
+      "userStoryId": "US-1786548041528",
+      "sourceRef": "docs/historias-po.md#HU-02: Tablero Kanban de Tareas (Dashboard)"
+    },
+    {
+      "userStoryId": "US-1786548043984",
+      "sourceRef": "docs/historias-po.md#HU-03: Panel de Administración y Gestión de Usuarios"
+    }
+  ],
+  "mappings": []
+}

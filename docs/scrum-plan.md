@@ -1,6 +1,6 @@
 # Plan de Requerimientos — projectoPrueba
 
-_Generado automáticamente el 2026-08-12T16:15:54.926Z — no editar a mano, se sobreescribe en cada publicación._
+_Generado automáticamente el 2026-08-12T16:25:47.139Z — no editar a mano, se sobreescribe en cada publicación._
 
 Orden sugerido de desarrollo (respeta dependencias entre Requerimientos). Cada fila indica de qué Requerimientos depende, si tiene.
 
@@ -17,6 +17,7 @@ Orden sugerido de desarrollo (respeta dependencias entre Requerimientos). Cada f
 ## Detalle
 
 ### RF-01 — Servicio y Endpoint de Autenticacion
+Implementado servicio y endpoint /api/auth/login con soporte para JWT (access y refresh), autenticacion por usuario o email, proteccion de contrasenas y endpoint /api/auth/me.
 - Estimado: 0h
 
 ### RF-02 — Interfaz de Login y Logout

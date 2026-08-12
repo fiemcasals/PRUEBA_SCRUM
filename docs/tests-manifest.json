@@ -1,0 +1,77 @@
+﻿{
+  "tests": [
+    {
+      "requirementCode": "RF-01",
+      "title": "Autenticación de usuario válida",
+      "type": "Integración",
+      "preconditions": "Usuario existente en base de datos",
+      "description": "Envía credenciales válidas al endpoint /api/auth/login y verifica que retorne 200 con el token o sesión.",
+      "expectedResult": "Devuelve 200 y token/sesión válida",
+      "steps": [
+        {
+          "name": "login",
+          "method": "POST",
+          "url": "{{baseUrl}}/api/auth/login",
+          "body": "{\"email\":\"admin@proyecto.local\",\"password\":\"Admin123!\"}",
+          "expectedStatus": 200
+        }
+      ]
+    },
+    {
+      "requirementCode": "RF-01",
+      "title": "Autenticación con credenciales incorrectas",
+      "type": "Integración",
+      "preconditions": "Sistema en ejecución",
+      "description": "Envía contraseña incorrecta al endpoint /api/auth/login y verifica rechazo con mensaje genérico.",
+      "expectedResult": "Devuelve 401 con mensaje genérico de credenciales inválidas",
+      "steps": [
+        {
+          "name": "login_invalido",
+          "method": "POST",
+          "url": "{{baseUrl}}/api/auth/login",
+          "body": "{\"email\":\"usuario@proyecto.local\",\"password\":\"ClaveErronea123\"}",
+          "expectedStatus": 401
+        }
+      ]
+    },
+    {
+      "requirementCode": "RF-01",
+      "title": "Crear y listar tareas en el tablero",
+      "type": "Integración",
+      "preconditions": "Usuario autenticado",
+      "description": "Crea una nueva tarea en To Do vía POST y verifica que aparezca listada en GET /api/tasks.",
+      "expectedResult": "Devuelve 201 al crear y 200 al listar conteniendo la tarea",
+      "steps": [
+        {
+          "name": "crear_tarea",
+          "method": "POST",
+          "url": "{{baseUrl}}/api/tasks",
+          "body": "{\"title\":\"Tarea de prueba {{now}}\",\"description\":\"Verificación de integración\"}",
+          "expectedStatus": 201
+        },
+        {
+          "name": "listar_tareas",
+          "method": "GET",
+          "url": "{{baseUrl}}/api/tasks",
+          "expectedStatus": 200
+        }
+      ]
+    },
+    {
+      "requirementCode": "RF-01",
+      "title": "Control de acceso a rutas de administración",
+      "type": "Integración",
+      "preconditions": "Token sin privilegios de admin",
+      "description": "Intenta acceder a /api/admin/users sin permisos y valida respuesta 403 Forbidden.",
+      "expectedResult": "Devuelve 403 Forbidden",
+      "steps": [
+        {
+          "name": "acceso_no_autorizado",
+          "method": "GET",
+          "url": "{{baseUrl}}/api/admin/users",
+          "expectedStatus": 403
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # Historias de Usuario -- projectoPrueba
 
-_Generado automaticamente el 2026-08-12T15:20:42.523Z -- no editar a mano, se sobreescribe en cada publicacion._
+_Generado automaticamente el 2026-08-12T15:20:45.054Z -- no editar a mano, se sobreescribe en cada publicacion._
 
 ## HU-01: Inicio de Sesión y Autenticación de Usuarios
 
@@ -33,3 +33,19 @@ Como miembro del equipo autenticado, quiero visualizar y gestionar tareas en un 
 ### Detalle Tecnico y Reglas de Negocio
 
 Componente de tablero Kanban reactivo con persistencia de estado de tareas en base de datos.
+
+## HU-03: Panel de Administración y Gestión de Usuarios
+
+Como Administrador del sistema, quiero crear nuevos usuarios y gestionar sus contraseñas y accesos para controlar quién puede ingresar al sistema y administrar el equipo.
+
+### Criterios de Aceptacion
+
+- La vista de administración es accesible únicamente para usuarios con rol Admin (los demás usuarios reciben acceso denegado o son redirigidos al Dashboard).
+- Permite listar todos los usuarios registrados en el sistema.
+- Permite crear nuevos usuarios completando nombre, email, rol (Usuario / Admin) y contraseña inicial.
+- Permite restablecer o cambiar la contraseña de un usuario existente.
+- Permite editar datos de usuario o deshabilitar/eliminar cuentas.
+
+### Detalle Tecnico y Reglas de Negocio
+
+Rutas protegidas por middleware de roles (RBAC) y endpoints CRUD para administración de usuarios.

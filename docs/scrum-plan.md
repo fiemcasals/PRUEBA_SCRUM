@@ -1,6 +1,6 @@
 # Plan de Requerimientos — projectoPrueba
 
-_Generado automáticamente el 2026-08-13T16:20:33.379Z — no editar a mano, se sobreescribe en cada publicación._
+_Generado automáticamente el 2026-08-13T16:21:30.833Z — no editar a mano, se sobreescribe en cada publicación._
 
 Orden sugerido de desarrollo (respeta dependencias entre Requerimientos). Cada fila indica de qué Requerimientos depende, si tiene.
 
@@ -13,7 +13,7 @@ Orden sugerido de desarrollo (respeta dependencias entre Requerimientos). Cada f
 | 5 | RF-02 | Tablero Visual Kanban Reactivo | HU-02 | — | — | Hacer | Sin asignar | — | — |
 | 6 | RF-01 | Middleware de Control de Acceso basado en Roles (RBAC) | HU-03 | — | — | Hacer | Sin asignar | — | — |
 | 7 | RF-02 | Gestion Administrativa de Usuarios (CRUD y Contrasenas) | HU-03 | — | — | Hacer | Sin asignar | — | — |
-| 8 | RF-01 | Servicio de Registro de Logs de Auditoría | HU-04 | — | — | Hacer | Sin asignar | — | — |
+| 8 | RF-01 | Servicio de Registro de Logs de Auditoría | HU-04 | — | — | Haciendo | Sin asignar | — | — |
 
 ## Detalle
 

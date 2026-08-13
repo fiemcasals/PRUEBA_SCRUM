@@ -1,10 +1,10 @@
 # Grafo de Dependencias -- projectoPrueba
 
-_Generado automaticamente el 2026-08-13T16:19:50.699Z -- no editar a mano, se sobreescribe en cada publicacion._
+_Generado automaticamente el 2026-08-13T16:20:07.602Z -- no editar a mano, se sobreescribe en cada publicacion._
 
 ```mermaid
 graph TD
-  subgraph US_1786548038997["HU-01: Inicio de Sesión y Autenticación de Usuarios"]
+  subgraph US_1786548038997["HU-01: Inicio de Sesión y Autenticación de Usuarios (Actualizado)"]
     REQ_1786550047158["RF-01: Servicio y Endpoint de Autenticacion"]
     REQ_1786550047244["RF-02: Interfaz de Login y Logout"]
     REQ_1786550047330["RNF-01: Seguridad de Credenciales y Manejo de Sesiones"]

@@ -1,8 +1,8 @@
 # Requerimientos -- projectoPrueba
 
-_Generado automaticamente el 2026-08-13T16:20:35.977Z -- no editar a mano, se sobreescribe en cada publicacion._
+_Generado automaticamente el 2026-08-13T16:21:33.544Z -- no editar a mano, se sobreescribe en cada publicacion._
 
-## HU-01: Inicio de Sesión y Autenticación de Usuarios (Actualizado)
+## HU-01: HU-01: Inicio de Sesión y Autenticación de Usuarios
 
 ### RF-01: Servicio y Endpoint de Autenticacion (Funcional)
 
@@ -16,7 +16,7 @@ Formulario web con validaciones de campos, visualizacion de errores genericos ('
 
 Hasheo seguro de contrasenas con salting (bcrypt con factor >= 10 o Argon2id) y expiracion de tokens/sesiones por inactividad.
 
-## HU-02: Tablero Kanban de Tareas (Dashboard)
+## HU-02: HU-02: Tablero Kanban de Tareas (Dashboard)
 
 ### RF-01: API CRUD y Persistencia de Tareas (Funcional)
 
@@ -26,7 +26,7 @@ Endpoints REST para listar tareas, crear nueva tarea con titulo y descripcion (i
 
 Vista de Dashboard con 3 columnas (To Do, Doing, Done), tarjetas informativas de cada tarea y soporte para moverlas de columna persistiendo el nuevo estado en tiempo real.
 
-## HU-03: Panel de Administración y Gestión de Usuarios
+## HU-03: HU-03: Panel de Administración y Gestión de Usuarios
 
 ### RF-01: Middleware de Control de Acceso basado en Roles (RBAC) (Funcional)
 
@@ -36,8 +36,12 @@ Proteccion de rutas a nivel backend y frontend para restringir el acceso al pane
 
 Interfaz y endpoints para listar usuarios del sistema, crear nuevos usuarios (nombre, email, rol, clave inicial), editar datos, resetear contrasenas y dar de baja cuentas.
 
-## HU-04: HU-04: Notificaciones y Auditoría de Actividad
+## HU-04: HU-04: Auditoría de Seguridad y Registro de Eventos
 
 ### RF-01: Servicio de Registro de Logs de Auditoría (Funcional)
 
 Middleware para registrar eventos de login y acciones administrativas en base de datos.
+
+### RF-02: Panel de Visualización y Métricas de Auditoría (Funcional)
+
+Vista administrativa y endpoints para filtrar y exportar logs de actividad del sistema.

@@ -1,6 +1,6 @@
 # Requerimientos -- projectoPrueba
 
-_Generado automaticamente el 2026-08-13T16:20:06.448Z -- no editar a mano, se sobreescribe en cada publicacion._
+_Generado automaticamente el 2026-08-13T16:20:19.177Z -- no editar a mano, se sobreescribe en cada publicacion._
 
 ## HU-01: Inicio de Sesión y Autenticación de Usuarios (Actualizado)
 
@@ -35,3 +35,9 @@ Proteccion de rutas a nivel backend y frontend para restringir el acceso al pane
 ### RF-02: Gestion Administrativa de Usuarios (CRUD y Contrasenas) (Funcional)
 
 Interfaz y endpoints para listar usuarios del sistema, crear nuevos usuarios (nombre, email, rol, clave inicial), editar datos, resetear contrasenas y dar de baja cuentas.
+
+## HU-04: HU-04: Notificaciones y Auditoría de Actividad
+
+### RF-01: Servicio de Registro de Logs de Auditoría (Funcional)
+
+Middleware para registrar eventos de login y acciones administrativas en base de datos.

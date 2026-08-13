@@ -1,23 +1,24 @@
 # Historias de Usuario -- projectoPrueba
 
-_Generado automaticamente el 2026-08-13T16:20:34.670Z -- no editar a mano, se sobreescribe en cada publicacion._
+_Generado automaticamente el 2026-08-13T16:21:32.301Z -- no editar a mano, se sobreescribe en cada publicacion._
 
-## HU-01: Inicio de Sesión y Autenticación de Usuarios (Actualizado)
+## HU-01: HU-01: Inicio de Sesión y Autenticación de Usuarios
 
-Como usuario del sistema, quiero iniciar sesión con mi correo/usuario y contraseña para acceder de manera segura a mi espacio de trabajo.
+Como usuario del sistema, quiero iniciar sesión con mi correo/usuario y contraseña para acceder de manera segura a mi espacio de trabajo según mis permisos.
 
 ### Criterios de Aceptacion
 
-- Formulario de login
-- Validación JWT
-- Logout con invalidación de sesión
-- Manejo de errores genéricos
+- Existe un formulario de login con campos para usuario/email y contraseña.
+- Al ingresar credenciales válidas, el usuario es redirigido al Dashboard (o al panel de Admin si corresponde).
+- Si las credenciales son incorrectas, se muestra un mensaje de error claro y genérico ("Credenciales inválidas").
+- El sistema mantiene la sesión activa mientras el usuario navega.
+- Existe un botón o acción visible para Cerrar Sesión (Logout) que invalida la sesión y redirige al login.
 
 ### Detalle Tecnico y Reglas de Negocio
 
-Autenticación con JWT (access/refresh token) y bcrypt con factor >= 10.
+Autenticación basada en sesiones seguras / tokens JWT con almacenamiento de contraseñas hasheadas (bcrypt/argon2).
 
-## HU-02: Tablero Kanban de Tareas (Dashboard)
+## HU-02: HU-02: Tablero Kanban de Tareas (Dashboard)
 
 Como miembro del equipo autenticado, quiero visualizar y gestionar tareas en un tablero con columnas To Do, Doing y Done para hacer seguimiento del estado y avance del trabajo de forma ágil.
 
@@ -31,9 +32,9 @@ Como miembro del equipo autenticado, quiero visualizar y gestionar tareas en un 
 
 ### Detalle Tecnico y Reglas de Negocio
 
-Componente de tablero Kanban reactivo con persistencia de estado de tareas en base de datos.
+Componente de tablero Kanban reactivo con persistencia de estado de tareas en base de datos PostgreSQL / SQLite.
 
-## HU-03: Panel de Administración y Gestión de Usuarios
+## HU-03: HU-03: Panel de Administración y Gestión de Usuarios
 
 Como Administrador del sistema, quiero crear nuevos usuarios y gestionar sus contraseñas y accesos para controlar quién puede ingresar al sistema y administrar el equipo.
 
@@ -49,16 +50,16 @@ Como Administrador del sistema, quiero crear nuevos usuarios y gestionar sus con
 
 Rutas protegidas por middleware de roles (RBAC) y endpoints CRUD para administración de usuarios.
 
-## HU-04: HU-04: Notificaciones y Auditoría de Actividad
+## HU-04: HU-04: Auditoría de Seguridad y Registro de Eventos
 
-Como Administrador del sistema, quiero registrar y consultar el historial de auditoría de inicio de sesión y acciones críticas para monitorear la seguridad.
+Como Administrador y Auditor del sistema, quiero visualizar el registro de actividad y eventos de seguridad para auditar accesos, intentos fallidos y operaciones críticas.
 
 ### Criterios de Aceptacion
 
-- Registro de logs de login
-- Notificación de accesos sospechosos
-- Visualización de logs para Admin
+- Registro automático de logins exitosos y fallidos con IP y timestamp.
+- Endpoint para consultar métricas y logs de auditoría filtrados por fecha y usuario.
+- Alertas visuales ante múltiples intentos de autenticación fallidos.
 
 ### Detalle Tecnico y Reglas de Negocio
 
-Tabla de logs de auditoría indexada por timestamp y usuario.
+Middleware de auditoría asíncrono con almacenamiento en tabla estructurada de eventos.

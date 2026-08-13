@@ -1,6 +1,6 @@
 # Grafo de Dependencias -- projectoPrueba
 
-_Generado automaticamente el 2026-08-13T16:20:07.602Z -- no editar a mano, se sobreescribe en cada publicacion._
+_Generado automaticamente el 2026-08-13T16:20:20.090Z -- no editar a mano, se sobreescribe en cada publicacion._
 
 ```mermaid
 graph TD
@@ -16,5 +16,8 @@ graph TD
   subgraph US_1786548043984["HU-03: Panel de Administración y Gestión de Usuarios"]
     REQ_1786550047567["RF-01: Middleware de Control de Acceso basado en Roles (RBAC)"]
     REQ_1786550047637["RF-02: Gestion Administrativa de Usuarios (CRUD y Contrasenas)"]
+  end
+  subgraph US_1786638004323["HU-04: HU-04: Notificaciones y Auditoría de Actividad"]
+    REQ_1786638016981["RF-01: Servicio de Registro de Logs de Auditoría"]
   end
 ```

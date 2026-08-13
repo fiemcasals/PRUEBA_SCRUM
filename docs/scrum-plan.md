@@ -1,13 +1,13 @@
 # Plan de Requerimientos — projectoPrueba
 
-_Generado automáticamente el 2026-08-13T16:18:08.630Z — no editar a mano, se sobreescribe en cada publicación._
+_Generado automáticamente el 2026-08-13T16:18:11.666Z — no editar a mano, se sobreescribe en cada publicación._
 
 Orden sugerido de desarrollo (respeta dependencias entre Requerimientos). Cada fila indica de qué Requerimientos depende, si tiene.
 
 | Orden | Código | Requerimiento | Historia de Usuario | Módulo | Entrega | Estado | Desarrollador | Depende de | Rechazos |
 |---|---|---|---|---|---|---|---|---|---|
 | 1 | RF-01 | Servicio y Endpoint de Autenticacion | HU-01 | — | — | Haciendo | dev-projectoprueba | — | — |
-| 2 | RF-02 | Interfaz de Login y Logout | HU-01 | — | — | Hecho | dev-projectoprueba | — | — |
+| 2 | RF-02 | Interfaz de Login y Logout | HU-01 | — | — | tested ✓ | dev-projectoprueba | — | — |
 | 3 | RNF-01 | Seguridad de Credenciales y Manejo de Sesiones | HU-01 | — | — | Hacer | dev-projectoprueba | — | — |
 | 4 | RF-01 | API CRUD y Persistencia de Tareas | HU-02 | — | — | Hacer | Sin asignar | — | — |
 | 5 | RF-02 | Tablero Visual Kanban Reactivo | HU-02 | — | — | Hacer | Sin asignar | — | — |

@@ -1,6 +1,6 @@
 # Plan de Requerimientos — projectoPrueba
 
-_Generado automáticamente el 2026-08-13T16:34:55.750Z — no editar a mano, se sobreescribe en cada publicación._
+_Generado automáticamente el 2026-08-13T16:35:10.972Z — no editar a mano, se sobreescribe en cada publicación._
 
 Orden sugerido de desarrollo (respeta dependencias entre Requerimientos). Cada fila indica de qué Requerimientos depende, si tiene.
 

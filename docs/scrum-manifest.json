@@ -1,56 +1,74 @@
-﻿{
-    "projectId":  "PROJ-1786460607278",
-    "lastSyncAt":  "2026-08-12T15:54:18.973Z",
-    "mappings":  [
-                     {
-                         "sourceRef":  "HU-01#Servicio y Endpoint de Autenticacion",
-                         "testIds":  [
-
-                                     ],
-                         "requirementId":  "REQ-1786550047158"
-                     },
-                     {
-                         "sourceRef":  "HU-01#Interfaz de Login y Logout",
-                         "testIds":  [
-
-                                     ],
-                         "requirementId":  "REQ-1786550047244"
-                     },
-                     {
-                         "sourceRef":  "HU-01#Seguridad de Credenciales y Manejo de Sesiones",
-                         "testIds":  [
-
-                                     ],
-                         "requirementId":  "REQ-1786550047330"
-                     },
-                     {
-                         "sourceRef":  "HU-02#API CRUD y Persistencia de Tareas",
-                         "testIds":  [
-
-                                     ],
-                         "requirementId":  "REQ-1786550047416"
-                     },
-                     {
-                         "sourceRef":  "HU-02#Tablero Visual Kanban Reactivo",
-                         "testIds":  [
-
-                                     ],
-                         "requirementId":  "REQ-1786550047501"
-                     },
-                     {
-                         "sourceRef":  "HU-03#Middleware de Control de Acceso basado en Roles (RBAC)",
-                         "testIds":  [
-
-                                     ],
-                         "requirementId":  "REQ-1786550047567"
-                     },
-                     {
-                         "sourceRef":  "HU-03#Gestion Administrativa de Usuarios (CRUD y Contrasenas)",
-                         "testIds":  [
-
-                                     ],
-                         "requirementId":  "REQ-1786550047637"
-                     }
-                 ],
-    "apiUrl":  "https://scrum.misitiowebpersonal.com.ar"
+{
+  "projectId": "PROJ-1786460607278",
+  "lastSyncAt": "2026-08-13T16:24:28.265842+00:00",
+  "mappings": [
+    {
+      "sourceRef": "US-1786548038997#Servicio y Endpoint de Autenticacion",
+      "testIds": [
+        "TEST-1786551927142",
+        "TEST-1786551934211"
+      ],
+      "requirementId": "REQ-1786550047158"
+    },
+    {
+      "sourceRef": "US-1786548038997#Interfaz de Login y Logout",
+      "testIds": [
+        "TEST-1786638121920",
+        "TEST-1786638122291"
+      ],
+      "requirementId": "REQ-1786550047244"
+    },
+    {
+      "sourceRef": "US-1786548038997#Seguridad de Credenciales y Manejo de Sesiones",
+      "testIds": [
+        "TEST-1786638122672",
+        "TEST-1786638122963"
+      ],
+      "requirementId": "REQ-1786550047330"
+    },
+    {
+      "sourceRef": "US-1786548041528#API CRUD y Persistencia de Tareas",
+      "testIds": [
+        "TEST-1786638123255",
+        "TEST-1786638123555"
+      ],
+      "requirementId": "REQ-1786550047416"
+    },
+    {
+      "sourceRef": "US-1786548041528#Tablero Visual Kanban Reactivo",
+      "testIds": [
+        "TEST-1786638123863"
+      ],
+      "requirementId": "REQ-1786550047501"
+    },
+    {
+      "sourceRef": "US-1786548043984#Middleware de Control de Acceso basado en Roles (RBAC)",
+      "testIds": [
+        "TEST-1786638124146"
+      ],
+      "requirementId": "REQ-1786550047567"
+    },
+    {
+      "sourceRef": "US-1786548043984#Gestion Administrativa de Usuarios (CRUD y Contrasenas)",
+      "testIds": [
+        "TEST-1786638124514"
+      ],
+      "requirementId": "REQ-1786550047637"
+    },
+    {
+      "sourceRef": "US-1786638004323#Servicio de Registro de Logs de Auditoría",
+      "testIds": [
+        "TEST-1786638124930"
+      ],
+      "requirementId": "REQ-1786638016981"
+    },
+    {
+      "sourceRef": "US-1786638004323#Panel de Visualización y Métricas de Auditoría",
+      "testIds": [
+        "TEST-1786638125271"
+      ],
+      "requirementId": "REQ-1786638091109"
+    }
+  ],
+  "apiUrl": "https://scrum.misitiowebpersonal.com.ar"
 }

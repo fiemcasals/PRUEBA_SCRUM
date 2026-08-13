@@ -1,20 +1,70 @@
 {
   "apiUrl": "https://scrum.misitiowebpersonal.com.ar",
   "projectId": "PROJ-1786460607278",
-  "lastSyncAt": "2026-08-12T15:20:45.000Z",
+  "lastSyncAt": "2026-08-13T16:24:28.265842+00:00",
   "userStoryMappings": [
     {
       "userStoryId": "US-1786548038997",
-      "sourceRef": "docs/historias-po.md#HU-01: Inicio de Sesión y Autenticación de Usuarios"
+      "sourceRef": "docs/historias-po.md#HU-01: HU-01: Inicio de Sesión y Autenticación de Usuarios"
     },
     {
       "userStoryId": "US-1786548041528",
-      "sourceRef": "docs/historias-po.md#HU-02: Tablero Kanban de Tareas (Dashboard)"
+      "sourceRef": "docs/historias-po.md#HU-02: HU-02: Tablero Kanban de Tareas (Dashboard)"
     },
     {
       "userStoryId": "US-1786548043984",
-      "sourceRef": "docs/historias-po.md#HU-03: Panel de Administración y Gestión de Usuarios"
+      "sourceRef": "docs/historias-po.md#HU-03: HU-03: Panel de Administración y Gestión de Usuarios"
+    },
+    {
+      "userStoryId": "US-1786638004323",
+      "sourceRef": "docs/historias-po.md#HU-04: HU-04: Auditoría de Seguridad y Registro de Eventos"
     }
   ],
-  "mappings": []
+  "mappings": [
+    {
+      "requirementId": "REQ-1786550047158",
+      "userStoryId": "US-1786548038997",
+      "sourceRef": "docs/REQUERIMIENTOS.md#Servicio y Endpoint de Autenticacion"
+    },
+    {
+      "requirementId": "REQ-1786550047244",
+      "userStoryId": "US-1786548038997",
+      "sourceRef": "docs/REQUERIMIENTOS.md#Interfaz de Login y Logout"
+    },
+    {
+      "requirementId": "REQ-1786550047330",
+      "userStoryId": "US-1786548038997",
+      "sourceRef": "docs/REQUERIMIENTOS.md#Seguridad de Credenciales y Manejo de Sesiones"
+    },
+    {
+      "requirementId": "REQ-1786550047416",
+      "userStoryId": "US-1786548041528",
+      "sourceRef": "docs/REQUERIMIENTOS.md#API CRUD y Persistencia de Tareas"
+    },
+    {
+      "requirementId": "REQ-1786550047501",
+      "userStoryId": "US-1786548041528",
+      "sourceRef": "docs/REQUERIMIENTOS.md#Tablero Visual Kanban Reactivo"
+    },
+    {
+      "requirementId": "REQ-1786550047567",
+      "userStoryId": "US-1786548043984",
+      "sourceRef": "docs/REQUERIMIENTOS.md#Middleware de Control de Acceso basado en Roles (RBAC)"
+    },
+    {
+      "requirementId": "REQ-1786550047637",
+      "userStoryId": "US-1786548043984",
+      "sourceRef": "docs/REQUERIMIENTOS.md#Gestion Administrativa de Usuarios (CRUD y Contrasenas)"
+    },
+    {
+      "requirementId": "REQ-1786638016981",
+      "userStoryId": "US-1786638004323",
+      "sourceRef": "docs/REQUERIMIENTOS.md#Servicio de Registro de Logs de Auditoría"
+    },
+    {
+      "requirementId": "REQ-1786638091109",
+      "userStoryId": "US-1786638004323",
+      "sourceRef": "docs/REQUERIMIENTOS.md#Panel de Visualización y Métricas de Auditoría"
+    }
+  ]
 }

@@ -1,35 +1,105 @@
-﻿{
+{
   "tests": [
     {
       "requirementCode": "RF-01",
-      "title": "Autenticación de usuario válida",
+      "title": "Login exitoso con usuario y contraseña",
       "type": "Integración",
-      "preconditions": "Usuario existente en base de datos",
-      "description": "Envía credenciales válidas al endpoint /api/auth/login y verifica que retorne 200 con el token o sesión.",
-      "expectedResult": "Devuelve 200 y token/sesión válida",
+      "preconditions": "Usuario 'admin' registrado en base de datos",
+      "description": "Envía credenciales válidas al endpoint /api/auth/login y valida retorno 200 con token JWT.",
+      "expectedResult": "Devuelve HTTP 200 con tokens JWT y datos de sesión",
       "steps": [
         {
-          "name": "login",
-          "method": "POST",
           "url": "{{baseUrl}}/api/auth/login",
-          "body": "{\"email\":\"admin@proyecto.local\",\"password\":\"Admin123!\"}",
+          "body": "{\"username\":\"admin@proyecto.local\",\"password\":\"AdminPassword123!\"}",
+          "name": "login_exitoso",
+          "method": "POST",
+          "expectedStatus": 200
+        },
+        {
+          "url": "{{baseUrl}}/api/auth/me",
+          "name": "verificar_perfil",
+          "method": "GET",
           "expectedStatus": 200
         }
       ]
     },
     {
       "requirementCode": "RF-01",
-      "title": "Autenticación con credenciales incorrectas",
+      "title": "Login rechazado con credenciales incorrectas",
       "type": "Integración",
-      "preconditions": "Sistema en ejecución",
-      "description": "Envía contraseña incorrecta al endpoint /api/auth/login y verifica rechazo con mensaje genérico.",
-      "expectedResult": "Devuelve 401 con mensaje genérico de credenciales inválidas",
+      "preconditions": "Servicio de autenticación activo",
+      "description": "Envía contraseña errónea al endpoint /api/auth/login y verifica rechazo 401 con mensaje genérico.",
+      "expectedResult": "Devuelve HTTP 401 con mensaje 'Credenciales inválidas'",
       "steps": [
         {
+          "url": "{{baseUrl}}/api/auth/login",
+          "body": "{\"username\":\"admin@proyecto.local\",\"password\":\"clave_incorrecta_xyz\"}",
           "name": "login_invalido",
           "method": "POST",
-          "url": "{{baseUrl}}/api/auth/login",
-          "body": "{\"email\":\"usuario@proyecto.local\",\"password\":\"ClaveErronea123\"}",
+          "expectedStatus": 401
+        }
+      ]
+    },
+    {
+      "requirementCode": "RF-02",
+      "title": "Cierre de sesión e invalidación de token (Logout)",
+      "type": "Integración",
+      "preconditions": "Usuario autenticado con token activo",
+      "description": "Llama al endpoint /api/auth/logout para invalidar el refresh token y destruir la sesión.",
+      "expectedResult": "Devuelve HTTP 200 y la sesión queda invalidada",
+      "steps": [
+        {
+          "url": "{{baseUrl}}/api/auth/logout",
+          "name": "logout_usuario",
+          "method": "POST",
+          "expectedStatus": 200
+        }
+      ]
+    },
+    {
+      "requirementCode": "RF-02",
+      "title": "Persistencia y verificación de sesión con token JWT",
+      "type": "Integración",
+      "preconditions": "Token JWT válido enviado en header Authorization",
+      "description": "Consulta /api/auth/me para obtener datos del usuario actual y verificar la sesión.",
+      "expectedResult": "Devuelve HTTP 200 con payload de usuario autenticado",
+      "steps": [
+        {
+          "url": "{{baseUrl}}/api/auth/me",
+          "name": "obtener_sesion",
+          "method": "GET",
+          "expectedStatus": 200
+        }
+      ]
+    },
+    {
+      "requirementCode": "RNF-01",
+      "title": "Protección de rutas sin token de autorización",
+      "type": "Integración",
+      "preconditions": "Petición HTTP sin cabecera Authorization",
+      "description": "Intenta acceder a un endpoint protegido (/api/tasks) sin token y verifica respuesta 401 Unauthorized.",
+      "expectedResult": "Devuelve HTTP 401 Unauthorized",
+      "steps": [
+        {
+          "url": "{{baseUrl}}/api/tasks",
+          "name": "acceso_anonimo_rechazado",
+          "method": "GET",
+          "expectedStatus": 401
+        }
+      ]
+    },
+    {
+      "requirementCode": "RNF-01",
+      "title": "Expiración y rechazo de token manipulado",
+      "type": "Integración",
+      "preconditions": "Token con firma inválida o expirado",
+      "description": "Envía token JWT con payload manipulado al endpoint /api/auth/me y valida rechazo 401.",
+      "expectedResult": "Devuelve HTTP 401 con error de firma o token expirado",
+      "steps": [
+        {
+          "url": "{{baseUrl}}/api/auth/me",
+          "name": "token_falsificado",
+          "method": "GET",
           "expectedStatus": 401
         }
       ]
@@ -38,38 +108,133 @@
       "requirementCode": "RF-01",
       "title": "Crear y listar tareas en el tablero",
       "type": "Integración",
-      "preconditions": "Usuario autenticado",
+      "preconditions": "Usuario autenticado en el sistema",
       "description": "Crea una nueva tarea en To Do vía POST y verifica que aparezca listada en GET /api/tasks.",
-      "expectedResult": "Devuelve 201 al crear y 200 al listar conteniendo la tarea",
+      "expectedResult": "Devuelve HTTP 201 al crear y HTTP 200 al listar",
       "steps": [
         {
+          "url": "{{baseUrl}}/api/tasks",
+          "body": "{\"title\":\"Tarea de prueba {{now}}\",\"description\":\"Verificación automatizada QA\"}",
           "name": "crear_tarea",
           "method": "POST",
-          "url": "{{baseUrl}}/api/tasks",
-          "body": "{\"title\":\"Tarea de prueba {{now}}\",\"description\":\"Verificación de integración\"}",
           "expectedStatus": 201
         },
         {
+          "url": "{{baseUrl}}/api/tasks",
           "name": "listar_tareas",
           "method": "GET",
-          "url": "{{baseUrl}}/api/tasks",
           "expectedStatus": 200
         }
       ]
     },
     {
       "requirementCode": "RF-01",
-      "title": "Control de acceso a rutas de administración",
+      "title": "Actualizar estado de tarea a Doing y Done",
       "type": "Integración",
-      "preconditions": "Token sin privilegios de admin",
-      "description": "Intenta acceder a /api/admin/users sin permisos y valida respuesta 403 Forbidden.",
-      "expectedResult": "Devuelve 403 Forbidden",
+      "preconditions": "Tarea existente creada previamente",
+      "description": "Actualiza el estado de una tarea existente a Doing y luego a Done persistiendo el cambio.",
+      "expectedResult": "Devuelve HTTP 200 con el nuevo estado persistido",
       "steps": [
         {
+          "url": "{{baseUrl}}/api/tasks",
+          "body": "{\"title\":\"Tarea para mover\",\"description\":\"Prueba de cambio de columna\"}",
+          "name": "crear_para_actualizar",
+          "method": "POST",
+          "expectedStatus": 201
+        },
+        {
+          "url": "{{baseUrl}}/api/tasks/{{crear_para_actualizar.id}}",
+          "body": "{\"status\":\"doing\"}",
+          "name": "mover_a_doing",
+          "method": "PATCH",
+          "expectedStatus": 200
+        }
+      ]
+    },
+    {
+      "requirementCode": "RF-02",
+      "title": "Consulta de estructura de tablero Kanban por columnas",
+      "type": "Integración",
+      "preconditions": "Usuario autenticado con acceso al Dashboard",
+      "description": "Consulta /api/tasks y valida que los ítems contengan estado válido (to_do, doing, done).",
+      "expectedResult": "Devuelve HTTP 200 con listado agrupable en 3 columnas",
+      "steps": [
+        {
+          "url": "{{baseUrl}}/api/tasks",
+          "name": "obtener_tablero",
+          "method": "GET",
+          "expectedStatus": 200
+        }
+      ]
+    },
+    {
+      "requirementCode": "RF-01",
+      "title": "Control de acceso a rutas de administración (RBAC)",
+      "type": "Integración",
+      "preconditions": "Token de usuario sin privilegios de Administrador",
+      "description": "Intenta acceder a /api/admin/users sin rol Admin y valida respuesta 403 Forbidden.",
+      "expectedResult": "Devuelve HTTP 403 Forbidden",
+      "steps": [
+        {
+          "url": "{{baseUrl}}/api/admin/users",
           "name": "acceso_no_autorizado",
           "method": "GET",
-          "url": "{{baseUrl}}/api/admin/users",
           "expectedStatus": 403
+        }
+      ]
+    },
+    {
+      "requirementCode": "RF-02",
+      "title": "Administración y listado de usuarios del sistema",
+      "type": "Integración",
+      "preconditions": "Usuario autenticado con rol Admin",
+      "description": "Lista todos los usuarios registrados y crea un usuario de prueba como Administrador.",
+      "expectedResult": "Devuelve HTTP 200 al listar y HTTP 201 al crear usuario",
+      "steps": [
+        {
+          "url": "{{baseUrl}}/api/admin/users",
+          "name": "listar_usuarios",
+          "method": "GET",
+          "expectedStatus": 200
+        },
+        {
+          "url": "{{baseUrl}}/api/admin/users",
+          "body": "{\"name\":\"QA User {{now}}\",\"email\":\"qa_{{now}}@proyecto.local\",\"role\":\"user\",\"password\":\"TempPassword123!\"}",
+          "name": "crear_usuario_qa",
+          "method": "POST",
+          "expectedStatus": 201
+        }
+      ]
+    },
+    {
+      "requirementCode": "RF-01",
+      "title": "Registro y consulta de logs de auditoría",
+      "type": "Integración",
+      "preconditions": "Servicio de auditoría inicializado",
+      "description": "Consulta el registro de eventos y logs de seguridad administrativos.",
+      "expectedResult": "Devuelve HTTP 200 con lista de eventos indexados",
+      "steps": [
+        {
+          "url": "{{baseUrl}}/api/admin/audit",
+          "name": "consultar_auditoria",
+          "method": "GET",
+          "expectedStatus": 200
+        }
+      ]
+    },
+    {
+      "requirementCode": "RF-02",
+      "title": "Métricas de seguridad y alertas de acceso",
+      "type": "Integración",
+      "preconditions": "Módulo de métricas habilitado",
+      "description": "Consulta indicadores de intentos de acceso y estadísticas de actividad.",
+      "expectedResult": "Devuelve HTTP 200 con resumen estadístico",
+      "steps": [
+        {
+          "url": "{{baseUrl}}/api/admin/audit/metrics",
+          "name": "consultar_metricas",
+          "method": "GET",
+          "expectedStatus": 200
         }
       ]
     }

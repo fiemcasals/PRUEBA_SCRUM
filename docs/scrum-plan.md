@@ -1,20 +1,20 @@
 # Plan de Requerimientos — projectoPrueba
 
-_Generado automáticamente el 2026-08-14T13:33:38.174Z — no editar a mano, se sobreescribe en cada publicación._
+_Generado automáticamente el 2026-08-14T14:46:03.900Z — no editar a mano, se sobreescribe en cada publicación._
 
 Orden sugerido de desarrollo (respeta dependencias entre Requerimientos). Cada fila indica de qué Requerimientos depende, si tiene.
 
 | Orden | Código | Requerimiento | Historia de Usuario | Módulo | Entrega | Estado | Desarrollador | Depende de | Rechazos |
 |---|---|---|---|---|---|---|---|---|---|
-| 1 | RF-02 | Interfaz de Login y Logout | HU-01 | — | — | production ✓✓ | dev-projectoprueba | — | — |
-| 2 | RNF-01 | Seguridad de Credenciales y Manejo de Sesiones | HU-01 | — | — | Bloqueada | dev-projectoprueba | — | — |
+| 1 | RF-02 | Interfaz de Login y Logout | HU-01 | — | — | Bloqueada | dev-projectoprueba | — | — |
+| 2 | RNF-01 | Seguridad de Credenciales y Manejo de Sesiones | HU-01 | — | — | Hecho ✓ dev | dev-projectoprueba | — | — |
 | 3 | RF-01 | API CRUD y Persistencia de Tareas | HU-02 | — | — | Hecho ✓ dev | Sin asignar | — | — |
 | 4 | RF-02 | Tablero Visual Kanban Reactivo | HU-02 | — | — | Haciendo | Sin asignar | — | — |
 | 5 | RF-01 | Middleware de Control de Acceso basado en Roles (RBAC) | HU-03 | — | — | Haciendo | Sin asignar | — | — |
 | 6 | RF-02 | Gestion Administrativa de Usuarios (CRUD y Contrasenas) | HU-03 | — | — | Haciendo | Sin asignar | — | — |
 | 7 | RF-01 | Servicio de Registro de Logs de Auditoría | HU-04 | — | — | Haciendo | Sin asignar | — | — |
 | 8 | RF-02 | Panel de Visualización y Métricas de Auditoría | HU-04 | — | — | Haciendo | Sin asignar | — | — |
-| 9 | RF-01 | Servicio y Endpoint de Autenticacion | HU-01 | — | — | Hecho ✓ dev | dev-projectoprueba | RF-01 | — |
+| 9 | RF-01 | Servicio y Endpoint de Autenticacion | HU-01 | — | — | Hecho ✓ dev | dev-projectoprueba | RNF-01 | — |
 
 ## Detalle
 
@@ -23,7 +23,7 @@ Implementado formulario React de Login/Logout con validación de formularios, fe
 - Estimado: 0h
 
 ### RNF-01 — Seguridad de Credenciales y Manejo de Sesiones
-sigo
+Implementado hasheo de contraseñas con bcrypt (factor 12), protección de rutas mediante JWT en headers Authorization, y timeout de sesión por inactividad.
 - Estimado: 0h
 
 ### RF-01 — API CRUD y Persistencia de Tareas
@@ -46,4 +46,4 @@ sigo
 
 ### RF-01 — Servicio y Endpoint de Autenticacion
 Implementado servicio y endpoint /api/auth/login con soporte para JWT (access y refresh), autenticación por usuario o email, protección de contraseñas y endpoint /api/auth/me.
-- Estimado: 4h
+- Estimado: 0h

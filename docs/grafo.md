@@ -1,6 +1,6 @@
 # Grafo de Dependencias -- projectoPrueba
 
-_Generado automaticamente el 2026-08-14T14:46:07.347Z -- no editar a mano, se sobreescribe en cada publicacion._
+_Generado automaticamente el 2026-08-14T14:46:26.961Z -- no editar a mano, se sobreescribe en cada publicacion._
 
 ```mermaid
 graph TD

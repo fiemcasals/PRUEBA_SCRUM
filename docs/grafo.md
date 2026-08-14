@@ -1,6 +1,6 @@
 # Grafo de Dependencias -- projectoPrueba
 
-_Generado automaticamente el 2026-08-14T13:31:31.651Z -- no editar a mano, se sobreescribe en cada publicacion._
+_Generado automaticamente el 2026-08-14T13:32:58.716Z -- no editar a mano, se sobreescribe en cada publicacion._
 
 ```mermaid
 graph TD
@@ -21,4 +21,5 @@ graph TD
     REQ_1786638016981["RF-01: Servicio de Registro de Logs de Auditoría"]
     REQ_1786638091109["RF-02: Panel de Visualización y Métricas de Auditoría"]
   end
+  REQ_1786550047416 --> REQ_1786550047158
 ```

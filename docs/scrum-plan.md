@@ -1,6 +1,6 @@
 # Plan de Requerimientos — projectoPrueba
 
-_Generado automáticamente el 2026-08-14T13:33:09.196Z — no editar a mano, se sobreescribe en cada publicación._
+_Generado automáticamente el 2026-08-14T13:33:13.751Z — no editar a mano, se sobreescribe en cada publicación._
 
 Orden sugerido de desarrollo (respeta dependencias entre Requerimientos). Cada fila indica de qué Requerimientos depende, si tiene.
 
@@ -23,7 +23,7 @@ Implementado formulario React de Login/Logout con validación de formularios, fe
 - Estimado: 0h
 
 ### RNF-01 — Seguridad de Credenciales y Manejo de Sesiones
-Implementado hasheo de contraseñas con bcrypt (factor 12), protección de rutas mediante JWT en headers Authorization, y timeout de sesión por inactividad.
+sigo
 - Estimado: 0h
 
 ### RF-01 — API CRUD y Persistencia de Tareas

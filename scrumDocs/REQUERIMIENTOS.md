@@ -1,6 +1,6 @@
 # Requerimientos -- projectoPrueba
 
-_Generado automaticamente el 2026-08-25T12:00:24.812Z -- no editar a mano, se sobreescribe en cada publicacion._
+_Generado automaticamente el 2026-08-25T12:02:13.416Z -- no editar a mano, se sobreescribe en cada publicacion._
 
 ## HU-01: HU-01: Inicio de Sesión y Autenticación de Usuarios
 
